@@ -1,0 +1,40 @@
+1. In the next lesson, you will require the following image links in order to test your neural network:
+
+https://c8.alamy.com/comp/G667W0/road-sign-speed-limit-30-kmh-zone-passau-bavaria-germany-G667W0.jpg
+
+https://c8.alamy.com/comp/A0RX23/cars-and-automobiles-must-turn-left-ahead-sign-A0RX23.jpg
+
+https://previews.123rf.com/images/bwylezich/bwylezich1608/bwylezich160800375/64914157-german-road-sign-slippery-road.jpg
+
+https://previews.123rf.com/images/pejo/pejo0907/pejo090700003/5155701-german-traffic-sign-no-205-give-way.jpg
+
+https://c8.alamy.com/comp/J2MRAJ/german-road-sign-bicycles-crossing-J2MRAJ.jpg
+
+
+
+2. You will also require the following sample code to fetch images from the web:
+
+#fetch image
+ 
+import requests
+from PIL import Image
+url = 'https://c8.alamy.com/comp/J2MRAJ/german-road-sign-bicycles-crossing-J2MRAJ.jpg'
+r = requests.get(url, stream=True)
+img = Image.open(r.raw)
+plt.imshow(img, cmap=plt.get_cmap('gray'))
+ 
+ 
+#Preprocess image
+ 
+img = np.asarray(img)
+img = cv2.resize(img, (32, 32))
+img = preprocessing(img)
+plt.imshow(img, cmap = plt.get_cmap('gray'))
+print(img.shape)
+ 
+#Reshape reshape
+ 
+img = img.reshape(1, 32, 32, 1)
+ 
+#Test image
+print("predicted sign: "+ str(model.predict_classes(img)))

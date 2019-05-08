@@ -1,0 +1,4 @@
+Resource for upcoming video
+You will require this url for the upcoming video:
+
+'https://www.researchgate.net/profile/Jose_Sempere/publication/221258631/figure/fig1/AS:305526891139075@1449854695342/Handwritten-digit-2.png'
